@@ -1,0 +1,77 @@
+@import "tailwindcss";
+:root {
+    --body-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+    --card-bg: #ffffff;
+    --text-color: #343a40;
+    --secondary-text: #6c757d;
+
+    --input-bg: #ffffff;
+    --border-color: #dedee8;
+}
+
+
+html[data-theme="dark"] {
+    --body-bg: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+
+    --card-bg: #1f2937;
+    --text-color: #f3f4f6;
+    --secondary-text: #9ca3af;
+
+    --input-bg: #374151;
+    --border-color: #4b5563;
+}
+
+
+body {
+    background: var(--body-bg);
+    color: var(--text-color);
+}
+
+
+
+main {
+    background-color: var(--card-bg);
+}
+
+
+
+main section {
+    background-color: var(--card-bg);
+}
+
+
+
+input,
+select,
+textarea {
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--secondary-text);
+}
+
+
+
+html[data-theme="dark"] #taskList > div {
+    background-color: #374151;
+    border-color: #4b5563;
+}
+
+
+
+html[data-theme="dark"] #taskList p {
+    color: #f3f4f6;
+}
+
+
+html[data-theme="dark"] #editModal > div {
+    background-color: #1f2937;
+    color: #f3f4f6;
+}

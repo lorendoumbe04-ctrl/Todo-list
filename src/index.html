@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/output.css" />
+  </head>
+
+  <body
+    class="min-h-screen bg-gradient-to-br from-[#667eea] to-[#764ba2] flex items-center justify-center p-4"
+  >
+    <main
+      class="w-full max-w-[610px] bg-white rounded-[14px] overflow-hidden shadow-lg"
+    >
+      <header
+        class="relative bg-gradient-to-r from-[#625bf6] to-[#7c5cf6] text-white px-5 pt-4 pb-4"
+      >
+        <div class="flex items-center justify-between">
+          <h1 class="text-[21px] font-bold">Todo List</h1>
+
+          <button
+            id="themeBtn"
+            class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center"
+          >
+            <i class="fa-solid fa-moon text-[12px]"></i>
+          </button>
+        </div>
+
+        <p class="text-center text-[11px] mt-2">
+          Organisez votre vie en un seul endroit
+        </p>
+
+        <div class="grid grid-cols-3 text-center mt-3">
+          <div>
+            <p id="totalTasks" class="text-[18px] font-bold leading-none">0</p>
+
+            <p class="text-[10px] mt-1">Total</p>
+          </div>
+
+          <div>
+            <p id="completedTasks" class="text-[18px] font-bold leading-none">
+              0
+            </p>
+
+            <p class="text-[10px] mt-1">Terminées</p>
+          </div>
+
+          <div>
+            <p id="pendingTasks" class="text-[18px] font-bold leading-none">
+              0
+            </p>
+
+            <p class="text-[10px] mt-1">En attente</p>
+          </div>
+        </div>
+      </header>
+
+      <section class="bg-[#ffffff] px-4 py-4">
+        <div class="flex flex-col sm:flex-row gap-2">
+          <input
+            id="taskInput"
+            type="text"
+            placeholder="Ajouter une nouvelle tâche..."
+            class="h-[38px] min-w-0 flex-1 border border-[#dedee8] rounded-[8px] px-3 text-[11px] text-gray-700 placeholder:text-gray-400 outline-none focus:border-[#625bf6]"
+          />
+
+          <input
+            type="date"
+            id="dueDateInput"
+            class="h-[38px] w-full sm:w-auto border border-[#dedee8] rounded-[8px] px-3 text-[11px] text-gray-700 outline-none focus:border-[#625bf6]"
+          />
+          <select
+            id="priorityInput"
+            class="h-[38px] w-full sm:w-[95px] border border-[#dedee8] rounded-[8px] px-2 text-[11px] text-gray-600 outline-none"
+          >
+            <option value="low">important</option>
+
+            <option value="medium" selected>Medium</option>
+
+            <option value="high">très important</option>
+          </select>
+
+          <button
+            id="addTaskBtn"
+            class="h-[38px] w-full sm:w-auto bg-[#5146f5] text-white rounded-[8px] px-4 flex items-center justify-center gap-1.5 text-[11px]"
+          >
+            <i class="fa-solid fa-plus text-[10px]"></i>
+
+            Ajouter
+          </button>
+        </div>
+
+       <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mt-3">
+          <div class="flex items-center gap-2">
+            <button
+              class="filter-btn bg-[#5146f5] text-white rounded-full px-3 py-1.5 text-[9px]"
+              data-filter="all"
+            >
+              Toutes
+            </button>
+
+            <button
+              class="filter-btn border border-[#dedee8] text-gray-600 rounded-full px-3 py-1.5 text-[9px]"
+              data-filter="pending"
+            >
+              En attente
+            </button>
+
+            <button
+              class="filter-btn border border-[#dedee8] text-gray-600 rounded-full px-3 py-1.5 text-[9px]"
+              data-filter="completed"
+            >
+              Terminées
+            </button>
+          </div>
+
+          <div class="relative w-full sm:w-[180px]">
+            <input
+              id="searchInput"
+              type="text"
+              placeholder="Rechercher..."
+              class="w-full h-[31px] border border-[#dedee8] rounded-full pl-4 pr-8 text-[9px] outline-none placeholder:text-gray-400 focus:border-[#625bf6]"
+            />
+
+            <i
+              class="fa-solid fa-magnifying-glass absolute right-3 top-1/2 -translate-y-1/2 text-[10px] text-[#625bf6]"
+            ></i>
+          </div>
+        </div>
+
+        <div id="taskList" class="mt-4 space-y-2"></div>
+
+        <!-- <div id="emptyState" class="text-center py-9">
+          <i class="fa-solid fa-clipboard-list text-[38px] text-[#adb3bd]"></i>
+
+          <h2 class="text-[15px] font-bold text-[#464b57] mt-3">
+            Aucune tâche pour le moment
+          </h2>
+
+          <p class="text-[10px] text-[#9499a3] mt-1">
+            Ajoutez votre première tâche pour commencer
+          </p>
+        </div> -->
+
+        <div
+          id="pagination"
+          class="hidden justify-center items-center gap-2 mt-3"
+        >
+          <button
+            id="prevPage"
+            class="w-7 h-7 border border-gray-300 rounded-md text-[10px]"
+          >
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+
+          <div id="pageNumbers" class="flex gap-1"></div>
+
+          <button
+            id="nextPage"
+            class="w-7 h-7 border border-gray-300 rounded-md text-[10px]"
+          >
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <div
+      id="editModal"
+      class="hidden fixed inset-0 bg-black/50 items-center justify-center p-4"
+    >
+      <div class="bg-white w-full max-w-[350px] rounded-xl p-5">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-lg font-bold">Modifier la tâche</h2>
+
+          <button id="closeEditBtn" class="text-gray-500">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <input
+          id="editTaskInput"
+          type="text"
+          class="w-full border rounded-lg px-3 py-2 text-sm mb-3"
+        />
+
+        <textarea
+          id="editDescriptionInput"
+          placeholder="Description"
+          class="w-full border rounded-lg px-3 py-2 text-sm mb-3"
+        ></textarea>
+
+        <select
+          id="editPriorityInput"
+          class="w-full border rounded-lg px-3 py-2 text-sm mb-4"
+        >
+          <option value="low">Low</option>
+
+          <option value="medium">Medium</option>
+
+          <option value="high">High</option>
+        </select>
+
+        <div class="flex justify-end gap-2">
+          <button
+            id="cancelEditBtn"
+            class="border rounded-lg px-3 py-2 text-xs"
+          >
+            Annuler
+          </button>
+
+          <button
+            id="saveEditBtn"
+            class="bg-[#5146f5] text-white rounded-lg px-3 py-2 text-xs"
+          >
+            Enregistrer
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="notification"
+      class="hidden fixed bottom-5 right-5 bg-white shadow-lg rounded-lg px-4 py-2 text-xs"
+    ></div>
+    <!-- <script src="./assets/js/todoApp.js"></script> -->
+    <script type="module" src="./assets/js/index.js"></script>
+  </body>
+</html>

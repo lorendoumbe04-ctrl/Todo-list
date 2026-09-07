@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carousel de destinations</title>
+    <link rel="stylesheet" href="./css/output2.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+
+  <body
+    class="min-h-screen bg-gradient-to-br from-[#667eea] to-[#764ba2] flex items-center justify-center p-4"
+  >
+    <main
+      class="w-full max-w-[650px] bg-white rounded-xl overflow-hidden shadow-xl"
+    >
+      <header
+        class="bg-[#635bdf] text-white px-5 py-4 flex items-center justify-between"
+      >
+        <h1 class="text-[17px] font-semibold">Découvrez Nos Destinations</h1>
+
+        <div class="flex items-center gap-2">
+          <button
+            id="playPauseBtn"
+            aria-label="Mettre le carousel en pause"
+            class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center"
+          >
+            <i class="fa-solid fa-pause text-[11px]"></i>
+          </button>
+
+          <button
+            id="headerPrevBtn"
+            aria-label="Destination précédente"
+            class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center"
+          >
+            <i class="fa-solid fa-chevron-left text-[10px]"></i>
+          </button>
+
+          <button
+            id="headerNextBtn"
+            aria-label="Destination suivante"
+            class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center"
+          >
+            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          </button>
+        </div>
+      </header>
+
+      <section
+        id="carousel"
+        class="relative bg-[#f7f7fa]"
+        aria-label="Destinations touristiques"
+      >
+        <div id="slidesContainer" class="overflow-hidden">
+          <div id="slides" class="flex">
+           
+            <article
+              class="slide min-w-full grid grid-cols-1 md:grid-cols-2 items-center gap-6 px-10 py-8"
+            >
+             
+              <div class="overflow-hidden rounded-lg">
+                <img
+                  src="./images/images (1).jpg"
+                  alt="Paysage de montagne"
+                  class="w-full h-[200px] object-cover"
+                />
+              </div>
+
+              <div>
+                <h2 class="text-[22px] font-bold text-gray-800">
+                  Randonnées en Montagne
+                </h2>
+
+                <p class="mt-3 text-[12px] leading-5 text-gray-500">
+                  Découvrez des paysages exceptionnels et profitez d'une
+                  aventure unique au cœur des montagnes.
+                </p>
+
+                <button
+                  class="mt-4 bg-[#635bdf] text-white text-[11px] px-4 py-2 rounded-full"
+                >
+                  Voir les randonnées
+                </button>
+              </div>
+            </article>
+
+           
+            <article
+              class="slide min-w-full grid grid-cols-1 md:grid-cols-2 items-center gap-6 px-10 py-8"
+            >
+              <div class="overflow-hidden rounded-lg">
+                <img
+                  src="./images/images (2).jpg"
+                  alt="Plage tropicale"
+                  class="w-full h-[200px] object-cover"
+                />
+              </div>
+
+              <div>
+                <h2 class="text-[22px] font-bold text-gray-800">
+                  Plages Paradisiaques
+                </h2>
+
+                <p class="mt-3 text-[12px] leading-5 text-gray-500">
+                  Profitez du soleil, du sable fin et des eaux cristallines.
+                </p>
+
+                <button
+                  class="mt-4 bg-[#635bdf] text-white text-[11px] px-4 py-2 rounded-full"
+                >
+                  Découvrir les plages
+                </button>
+              </div>
+            </article>
+
+            
+            <article
+              class="slide min-w-full grid grid-cols-1 md:grid-cols-2 items-center gap-6 px-10 py-8"
+            >
+              <div class="overflow-hidden rounded-lg">
+                <img
+                  src="./images/images (3).jpg"
+                  alt="Ville touristique"
+                  class="w-full h-[200px] object-cover"
+                />
+              </div>
+
+              <div>
+                <h2 class="text-[22px] font-bold text-gray-800">
+                  Villes Historiques
+                </h2>
+
+                <p class="mt-3 text-[12px] leading-5 text-gray-500">
+                  Découvrez l'histoire, la culture et l'architecture des plus
+                  belles villes.
+                </p>
+
+                <button
+                  class="mt-4 bg-[#635bdf] text-white text-[11px] px-4 py-2 rounded-full"
+                >
+                  Explorer
+                </button>
+              </div>
+            </article>
+
+            <article
+              class="slide min-w-full grid grid-cols-1 md:grid-cols-2 items-center gap-6 px-10 py-8"
+            >
+             
+              <div class="overflow-hidden rounded-lg">
+                <img
+                  src="./images/images (4).jpg"
+                  alt="Paysage de montagne"
+                  class="w-full h-[200px] object-cover"
+                />
+              </div>
+
+              <div>
+                <h2 class="text-[22px] font-bold text-gray-800">
+                  Randonnées en Montagne
+                </h2>
+
+                <p class="mt-3 text-[12px] leading-5 text-gray-500">
+                  Découvrez des paysages exceptionnels et profitez d'une
+                  aventure unique au cœur des montagnes.
+                </p>
+
+                <button
+                  class="mt-4 bg-[#635bdf] text-white text-[11px] px-4 py-2 rounded-full"
+                >
+                  Voir les randonnées
+                </button>
+              </div>
+            </article>
+
+            <article
+              class="slide min-w-full grid grid-cols-1 md:grid-cols-2 items-center gap-6 px-10 py-8"
+            >
+             
+              <div class="overflow-hidden rounded-lg">
+                <img
+                  src="./images/images.jpg"
+                  alt="Paysage de montagne"
+                  class="w-full h-[200px] object-cover"
+                />
+              </div>
+
+              <div>
+                <h2 class="text-[22px] font-bold text-gray-800">
+                  Randonnées en Montagne
+                </h2>
+
+                <p class="mt-3 text-[12px] leading-5 text-gray-500">
+                  Découvrez des paysages exceptionnels et profitez d'une
+                  aventure unique au cœur des montagnes.
+                </p>
+
+                <button
+                  class="mt-4 bg-[#635bdf] text-white text-[11px] px-4 py-2 rounded-full"
+                >
+                  Voir les randonnées
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <button
+          id="prevBtn"
+          aria-label="Afficher la destination précédente"
+          class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white shadow-md text-gray-600 flex items-center justify-center"
+        >
+          <i class="fa-solid fa-chevron-left text-[12px]"></i>
+        </button>
+
+        
+        <button
+          id="nextBtn"
+          aria-label="Afficher la destination suivante"
+          class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white shadow-md text-gray-600 flex items-center justify-center"
+        >
+          <i class="fa-solid fa-chevron-right text-[12px]"></i>
+        </button>
+      </section>
+
+      <div id="indicators" class="flex items-center justify-center gap-2 py-3">
+        <button
+          class="indicator w-2 h-2 rounded-full bg-[#635bdf]"
+          data-index="0"
+          aria-label="Aller à la première destination"
+        ></button>
+
+        <button
+          class="indicator w-2 h-2 rounded-full bg-gray-300"
+          data-index="1"
+          aria-label="Aller à la deuxième destination"
+        ></button>
+
+        <button
+          class="indicator w-2 h-2 rounded-full bg-gray-300"
+          data-index="2"
+          aria-label="Aller à la troisième destination"
+        ></button>
+      </div>
+
+      <div
+        id="thumbnails"
+        class="bg-gray-50 flex items-center justify-center gap-2 px-4 py-3"
+      >
+        <button
+          class="thumbnail border-2 border-[#635bdf] rounded overflow-hidden"
+          data-index="0"
+        >
+          <img
+            src="./images/images (1).jpg"
+            alt="Montagne"
+            class="w-[55px] h-[38px] object-cover"
+          />
+        </button>
+
+        <button
+          class="thumbnail border-2 border-transparent rounded overflow-hidden"
+          data-index="1"
+        >
+          <img
+            src="./images/images (2).jpg"
+            alt="Plage"
+            class="w-[55px] h-[38px] object-cover"
+          />
+        </button>
+
+        <button
+          class="thumbnail border-2 border-transparent rounded overflow-hidden"
+          data-index="2"
+        >
+          <img
+            src="./images/images (3).jpg"
+            alt="Ville"
+            class="w-[55px] h-[38px] object-cover"
+          />
+        </button>
+
+         <button
+          class="thumbnail border-2 border-[#635bdf] rounded overflow-hidden"
+          data-index="0"
+        >
+          <img
+            src="./images/images (4).jpg"
+            alt="Montagne"
+            class="w-[55px] h-[38px] object-cover"
+          />
+        </button>
+
+         <button
+          class="thumbnail border-2 border-[#635bdf] rounded overflow-hidden"
+          data-index="0"
+        >
+          <img
+            src="./images/images.jpg"
+            alt="Montagne"
+            class="w-[55px] h-[38px] object-cover"
+          />
+        </button>
+      </div>
+
+      <div class="w-full h-[3px] bg-gray-200">
+        <div id="progressBar" class="h-full w-0 bg-[#635bdf]"></div>
+      </div>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
