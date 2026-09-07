@@ -332,12 +332,6 @@
   .w-\[55px\] {
     width: 55px;
   }
-  .w-\[95px\] {
-    width: 95px;
-  }
-  .w-\[180px\] {
-    width: 180px;
-  }
   .w-full {
     width: 100%;
   }
@@ -747,11 +741,6 @@
   }
   .placeholder\:text-gray-400::placeholder {
     color: var(--color-gray-400);
-  }
-  @media (hover: hover) {
-    .hover\:bg-\[\#4438e8\]:hover {
-      background-color: #4438e8;
-    }
   }
   .focus\:border-\[\#625bf6\]:focus {
     border-color: #625bf6;
