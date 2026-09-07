@@ -332,6 +332,12 @@
   .w-\[55px\] {
     width: 55px;
   }
+  .w-\[95px\] {
+    width: 95px;
+  }
+  .w-\[180px\] {
+    width: 180px;
+  }
   .w-full {
     width: 100%;
   }
@@ -361,6 +367,10 @@
   }
   .border-collapse {
     border-collapse: collapse;
+  }
+  .translate-x-5 {
+    --tw-translate-x: calc(var(--spacing) * 5);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .-translate-y-1 {
     --tw-translate-y: calc(var(--spacing) * -1);
@@ -711,6 +721,9 @@
   .underline {
     text-decoration-line: underline;
   }
+  .opacity-0 {
+    opacity: 0%;
+  }
   .opacity-50 {
     opacity: 50%;
   }
@@ -741,6 +754,11 @@
   }
   .placeholder\:text-gray-400::placeholder {
     color: var(--color-gray-400);
+  }
+  @media (hover: hover) {
+    .hover\:bg-\[\#4438e8\]:hover {
+      background-color: #4438e8;
+    }
   }
   .focus\:border-\[\#625bf6\]:focus {
     border-color: #625bf6;

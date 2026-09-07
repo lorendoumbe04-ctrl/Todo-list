@@ -153,17 +153,30 @@ export class TodoApp {
     }
 
     deleteTask(id) {
-        {
-            const taskIndex = this.tasks.findIndex(task => task.id === id);
-            if (taskIndex !== -1) {
-                this.tasks.splice(taskIndex, 1);
-                this.showNotification('Tâche supprimée');
-                this.saveTasks();
-            }
-            this.renderTasks();
-        }
+    const taskElement = document.querySelector(
+        `[data-task-id="${id}"]`
+    );
 
+    if (taskElement) {
+        taskElement.classList.add(
+            'opacity-0',
+            'translate-x-5'
+        );
     }
+
+    setTimeout(() => {
+        this.tasks = this.tasks.filter(
+            task => task.id !== id
+        );
+
+        this.saveTasks();
+
+        this.showNotification('Tâche supprimée');
+
+        this.renderTasks();
+
+    }, 300);
+}
 
     getFilteredTasks() {
         let filteredTasks = [...this.tasks];
@@ -228,6 +241,7 @@ export class TodoApp {
         paginatedTasks.forEach(task => {
 
             const taskElement = document.createElement('div');
+            taskElement.dataset.id = task.id;
 
             taskElement.className =
                 'flex items-center justify-between border border-gray-200 rounded-lg px-4 py-3 bg-white';
